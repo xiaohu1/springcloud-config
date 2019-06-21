@@ -11,11 +11,11 @@ spring:
 #     port: 5672
 #     username: guest
 #     password: guest
-  redis:
-    host: 127.0.0.1
-    password: 
-    port: 6379
-    timeout: 0
+#   redis:
+#     host: 39.105.174.45
+#     password: 
+#     port: 6379
+#     timeout: 0
 #   datasource:
 #     driver-class-name: com.mysql.jdbc.Driver
 #     filters: stat,wall
