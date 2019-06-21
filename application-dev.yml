@@ -131,7 +131,14 @@ tiger:
     termsOfServiceUrl : http://localhost:8090
     version: 1.0
     apiName: Authorization
-    apiKeyName: Authorization    
+    apiKeyName: Authorization  
+# 异步线程池
+async :
+  corePoolSize : 16     #核心线程数
+  maxPoolSize : 64      #最大线程数
+  queueCapacity : 200    #队列大小(excel模板最大上传题目数量)
+  namePrefix : tiger_async   #线程的名称前缀
+  keepAlive  : 60 #允许的空闲时间    
 # paascloud:
 #   auth:
 #     jwt:
