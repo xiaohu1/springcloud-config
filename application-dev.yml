@@ -122,7 +122,16 @@ mybatis-plus:
     map-underscore-to-camel-case: true
     cache-enabled: false
     call-setters-on-nulls: true
-    
+tiger:
+  swagger2:
+    enable: true
+    base-package: com.example
+    title : Tiger-Cloud
+    description: Tiger cloud Restful API docs
+    termsOfServiceUrl : http://localhost:8090
+    version: 1.0
+    apiName: Authorization
+    apiKeyName: Authorization    
 # paascloud:
 #   auth:
 #     jwt:
