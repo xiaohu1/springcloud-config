@@ -1,11 +1,6 @@
-# dev
-server:
-  port: 8082
-
 spring:
-   profiles: dev
    datasource:
-      url: jdbc:mysql://127.0.0.1:3306/sy_auth?useUnicode=true&characterEncoding=utf-8&useSSL=false
+      url: jdbc:mysql://39.105.174.45:3306/sy_auth?useUnicode=true&characterEncoding=utf-8&useSSL=false
       username: root
       password: 123456
       druid:
@@ -16,7 +11,7 @@ spring:
       cluster:
          max-redirects: 3  # 获取失败 最大重定向次数
          nodes:
-            192.168.0.148:7000,192.168.0.148:7001,192.168.0.148:7002,192.168.0.148:7003,192.168.0.148:7004,192.168.0.148:7005
+            39.105.174.45:7000,39.105.174.45:7001,39.105.174.45:7002,39.105.174.45:7003,39.105.174.45:7004,39.105.174.45:7005
       lettuce:
          pool:
             max-active: 1000  #连接池最大连接数（使用负值表示没有限制）
