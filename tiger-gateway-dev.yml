@@ -1,117 +1,41 @@
 spring:
-  http:
-    encoding:
-      charset: UTF-8
-      force: true
-      enabled: true
-    multipart:
-      enabled: true
-      max-request-size: 50MB
-      max-file-size: 50MB
-
-zuul:
-  host:
-    socket-timeout-millis: 60000
-    connect-timeout-millis: 60000
-  forceOriginalQueryStringEncoding: true
-  routes:
-    uac-route:
-      path: /uac/**
-      sensitiveHeaders:
-#      strip-prefix: false
-      service-id: paascloud-provider-uac
-      ribbon:
-        eager-load:
-          enabled: true
-        MaxAutoRetries: 1
-        MaxAutoRetriesNextServer: 2
-        OkToRetryOnAllOperations: false
-        ConnectTimeout: 10000
-        ReadTimeout: 10000
-    mdc-route:
-      path: /mdc/**
-      sensitiveHeaders:
-      service-id: paascloud-provider-mdc
-      ribbon:
-        eager-load:
-          enabled: true
-        MaxAutoRetries: 1
-        MaxAutoRetriesNextServer: 2
-        OkToRetryOnAllOperations: false
-        ConnectTimeout: 10000
-        ReadTimeout: 10000
-    omc-route:
-      path: /omc/**
-      sensitiveHeaders:
-      service-id: paascloud-provider-omc
-      ribbon:
-        eager-load:
-          enabled: true
-        MaxAutoRetries: 1
-        MaxAutoRetriesNextServer: 2
-        OkToRetryOnAllOperations: false
-        ConnectTimeout: 10000
-        ReadTimeout: 10000
-    opc-route:
-      path: /opc/**
-      sensitiveHeaders:
-      service-id: paascloud-provider-opc
-      ribbon:
-        eager-load:
-          enabled: true
-        MaxAutoRetries: 1
-        MaxAutoRetriesNextServer: 2
-        OkToRetryOnAllOperations: false
-        ConnectTimeout: 10000
-        ReadTimeout: 10000
-    mall-route:
-      path: /mall/**
-      sensitiveHeaders:
-      service-id: paascloud-web-mall
-      ribbon:
-        eager-load:
-          enabled: true
-        MaxAutoRetries: 1
-        MaxAutoRetriesNextServer: 2
-        OkToRetryOnAllOperations: false
-        ConnectTimeout: 10000
-        ReadTimeout: 10000
-    tpc-route:
-      path: /tpc/**
-      sensitiveHeaders:
-      service-id: paascloud-provider-tpc
-      ribbon:
-        eager-load:
-          enabled: true
-        MaxAutoRetries: 1
-        MaxAutoRetriesNextServer: 2
-        OkToRetryOnAllOperations: false
-        ConnectTimeout: 10000
-        ReadTimeout: 10000
-  add-proxy-headers: true
-  add-host-header: true
-
-security:
-  oauth2:
-    client:
-      clientId: paascloud-client-gateway
-      clientSecret: paascloudClientSecret
-      access-token-uri: http://paascloud-gateway:7979/uac/oauth/token
-      user-authorization-uri: http://paascloud-gateway:7979/uac/oauth/authorize
-    resource:
-      user-info-uri: http://paascloud-gateway:7979/uac/user
-      prefer-token-info: false
-      jwt:
-        key-uri: http://paascloud-provider-uac:8000/oauth/token_key
-
-proxy:
-  auth:
-    routes:
-      uac-route: oauth2
-      mdc-route: oauth2
-
-paascloud:
-  enableSqlLogInterceptor: false
+  cloud:
+    gateway:
+      locator:
+        enabled: true
+      routes:
+      # 认证中心
+      - id: tiger-auth
+        uri: lb://pig-auth
+        predicates:
+        - Path=/auth/**
+#         filters:
+#           # 验证码处理
+#         - ValidateCodeGatewayFilter
+#           # 前端密码解密
+#         - PasswordDecoderFilter
+      # 模块
+      - id: tiger-admin
+        uri: lb://tiger-admin
+        predicates:
+        - Path=/admin/**
+#         filters:
+#           # 限流配置
+#         - name: RequestRateLimiter
+#           args:
+#             key-resolver: '#{@remoteAddrKeyResolver}'
+#             redis-rate-limiter.replenishRate: 10
+#             redis-rate-limiter.burstCapacity: 20
+#           # 降级配置
+#         - name: Hystrix
+#           args:
+#             name: default
+#             fallbackUri: 'forward:/fallback'
+#       # 代码生成模块
+#       - id: tiger-codegen
+#         uri: lb://tiger-codegen
+#         predicates:
+#         - Path=/gen/**
 # swagger butler配置
 swagger.butler:
   api-docs-path: v2/api-docs
