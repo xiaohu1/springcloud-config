@@ -6,7 +6,7 @@ spring:
       routes:
       # 认证中心
       - id: tiger-auth
-        uri: lb://pig-auth
+        uri: lb://tiger-auth
         predicates:
         - Path=/auth/**
 #         filters:
@@ -15,10 +15,10 @@ spring:
 #           # 前端密码解密
 #         - PasswordDecoderFilter
       # 模块
-      - id: tiger-admin
-        uri: lb://tiger-admin
+      - id: tiger-sys
+        uri: lb://tiger-sys
         predicates:
-        - Path=/admin/**
+        - Path=/sys/**
 #         filters:
 #           # 限流配置
 #         - name: RequestRateLimiter
@@ -32,10 +32,10 @@ spring:
 #             name: default
 #             fallbackUri: 'forward:/fallback'
 #       # 代码生成模块
-#       - id: tiger-codegen
-#         uri: lb://tiger-codegen
-#         predicates:
-#         - Path=/gen/**
+      - id: tiger-generator
+        uri: lb://tiger-generator
+        predicates:
+        - Path=/gen/**
 # swagger butler配置
 swagger.butler:
   api-docs-path: v2/api-docs
