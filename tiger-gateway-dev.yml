@@ -15,10 +15,10 @@ spring:
 #           # 前端密码解密
 #         - PasswordDecoderFilter
       # 模块
-      - id: tiger-sys
-        uri: lb://tiger-sys
-        predicates:
-        - Path=/sys/**
+#       - id: tiger-sys
+#         uri: lb://tiger-sys
+#         predicates:
+#         - Path=/sys/**
 #         filters:
 #           # 限流配置
 #         - name: RequestRateLimiter
