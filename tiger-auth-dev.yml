@@ -9,8 +9,6 @@ spring:
   jackson:
     time-zone: GMT+8
     date-format: yyyy-MM-dd HH:mm:ss
-  resources:
-    static-locations: classpath:/static/,classpath:/views/
 #    redis:
 #       password:    # 密码（默认为空）
 #       timeout: 6000ms  # 连接超时时长（毫秒）
