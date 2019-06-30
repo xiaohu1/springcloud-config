@@ -1,0 +1,174 @@
+# management:
+#   security:
+#     enabled: false
+
+spring:
+  aop:
+    proxy-target-class: true
+    auto: true
+#   rabbitmq:
+#     host: paascloud-mq-rabbit
+#     port: 5672
+#     username: guest
+#     password: guest
+#   redis:
+#     host: 39.105.174.45
+#     password: 
+#     port: 6379
+#     timeout: 0
+#   datasource:
+#     driver-class-name: com.mysql.jdbc.Driver
+#     filters: stat,wall
+#     druid:
+#       initial-size: 50
+#       min-idle: 50
+#       max-active: 100
+#       test-on-borrow: true
+#       time-between-eviction-runs-millis: 60000
+#       min-evictable-idle-time-millis: 300000
+#       web-stat-filter:
+#         exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+#       stat-view-servlet:
+#         allow:
+#         login-username: admin
+#         login-password: admin
+#   mail:
+#     host: smtp.163.com
+#     username: paascloudTest@163.com
+#     password: a123456
+#     port: 465
+#     protocol: smtp
+#     test-connection: false
+#     default-encoding: UTF-8
+#     properties:
+#       mail:
+#         debug: true
+#         smtp:
+#           auth: true
+#           connectiontimeout: 10000
+#           timeout: 10000
+#           writetimeout: 10000
+#           socketFactory:
+#             class: javax.net.ssl.SSLSocketFactory
+#             port: 465
+#           starttls:
+#             enable: true
+#             required: true
+#   boot:
+#     admin:
+#       username: admin
+#       password: admin
+#   zipkin:
+#     rabbitmq:
+#       queue: zipkin
+#   sleuth:
+#     sampler:
+#       percentage: 0.2
+
+# feign:
+#   hystrix:
+#     enabled: true
+#   client:
+#     config:
+#       default:
+#         connectTimeout: 5000
+#         readTimeout: 5000
+
+# ribbon:
+#   eager-load:
+#     enabled: true
+#   MaxAutoRetries: 1
+#   MaxAutoRetriesNextServer: 2
+#   OkToRetryOnAllOperations: false
+#   ConnectTimeout: 60000
+#   ReadTimeout: 20000
+
+# hystrix:
+#   command:
+#     default:
+#       execution:
+#         timeout:
+#           enabled: true
+#         isolation:
+#           thread:
+#             timeoutInMilliseconds: 20000
+
+#mybatis
+mybatis-plus:
+  mapper-locations: classpath:mapper/**/*.xml
+  #实体扫描，多个package用逗号或者分号分隔
+#   typeAliasesPackage: com.example.sys.api.entity
+  global-config:
+    #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+    id-type: 2
+    #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
+    field-strategy: 2
+    #驼峰下划线转换
+    db-column-underline: true
+    #刷新mapper 调试神器
+    refresh-mapper: true
+    #数据库大写下划线转换
+    #capital-mode: true
+    #序列接口实现类配置
+    #key-generator: com.baomidou.springboot.xxx
+    #逻辑删除配置
+    logic-delete-value: 1
+    logic-not-delete-value: 0
+    #自定义填充策略接口实现
+    #meta-object-handler: com.baomidou.springboot.xxx
+    #自定义SQL注入器
+#     sql-injector: com.baomidou.mybatisplus.mapper.LogicSqlInjector
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    call-setters-on-nulls: true
+tiger:
+  swagger2:
+    enable: true
+    base-package: com.example
+    title : Tiger-Cloud
+    description: Tiger cloud Restful API docs
+    termsOfServiceUrl : http://localhost:8090
+    version: 1.0
+    apiName: Authorization
+    apiKeyName: Authorization  
+# 异步线程池
+async :
+  corePoolSize : 16     #核心线程数
+  maxPoolSize : 64      #最大线程数
+  queueCapacity : 200    #队列大小(excel模板最大上传题目数量)
+  namePrefix : tiger_async   #线程的名称前缀
+  keepAlive  : 60 #允许的空闲时间    
+# paascloud:
+#   auth:
+#     jwt:
+#       expiredRemainMinutes: 20
+#       expiredMinutes: 120
+#   aliyun:
+#     key:
+#       accessKeyId: 'your aliyun accessKeyId'
+#       accessKeySecret: 'your aliyun accessKeySecret'
+#     rocketMq:
+#       namesrvAddr: paascloud-mq-rocket:9876
+#     sms:
+#       signName: 快乐学习网
+#       regionId: cn-beijing
+#       endpoint:
+#       endpointName: cn-beijing
+#       product: 'your sms product'
+#       domain: dysmsapi.aliyuncs.com
+#   qiniu:
+#     key:
+#       accessKey: 'your qiniu accessKey'
+#       secretKey: 'your qiniu secretKey'
+#     oss:
+#       privateHost: 'your qiniu oss private host'
+#       publicHost: 'your qiniu oss public host'
+#   alipay:
+#     callback:
+#       url: http://dev-api.paascloud.net/omc/pay/alipayCallback
+#     qrCode:
+#       pcPath: /data/file/qrCode/alipay
+#       qiniuPath: alipay/QRCode/
+#   zk:
+#     zkAddressList: paascloud-provider-zk:2181
