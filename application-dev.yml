@@ -1,6 +1,6 @@
-# management:
-#   security:
-#     enabled: false
+management:
+   security:
+     enabled: false
 
 spring:
   aop:
