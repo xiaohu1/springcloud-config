@@ -65,33 +65,33 @@ spring:
 #     sampler:
 #       percentage: 0.2
 
-#feign:
-#  hystrix:
-#    enabled: true
-#  client:
-#    config:
-#      default:
-#        connectTimeout: 5000
-#        readTimeout: 5000
+feign:
+  hystrix:
+    enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
 
-#ribbon:
-#  eager-load:
-#    enabled: true
-#  MaxAutoRetries: 1
-#  MaxAutoRetriesNextServer: 2
-#  OkToRetryOnAllOperations: false
-#  ConnectTimeout: 60000
-#  ReadTimeout: 20000
+ribbon:
+  eager-load:
+    enabled: true
+  MaxAutoRetries: 1
+  MaxAutoRetriesNextServer: 2
+  OkToRetryOnAllOperations: false
+  ConnectTimeout: 60000
+  ReadTimeout: 20000
 
-#hystrix:
-#  command:
-#    default:
-#      execution:
-#        timeout:
-#          enabled: true
-#        isolation:
-#          thread:
-#            timeoutInMilliseconds: 20000
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 20000
 
 #mybatis
 mybatis-plus:
