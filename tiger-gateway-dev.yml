@@ -10,8 +10,8 @@ spring:
         predicates:
         - Path=/auth/**
       # 模块
-      - id: tiger-sys
-        uri: lb://tiger-sys
+      - id: tiger-admin
+        uri: lb://tiger-admin
         predicates:
         - Path=/sys/**
       # 代码生成模块
