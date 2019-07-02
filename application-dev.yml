@@ -4,6 +4,9 @@ management:
     web:
       exposure:
         include: '*'
+  security:
+    enabled=false:
+
 
 spring:
   aop:
