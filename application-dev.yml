@@ -1,7 +1,7 @@
 # 暴露监控端点
 management:
   security:
-    enabled=false:
+    enabled: false
 
 
 spring:
