@@ -14,6 +14,11 @@ spring:
         uri: lb://tiger-sys
         predicates:
         - Path=/sys/**
+      # 模块
+      - id: tiger-order
+        uri: lb://tiger-order
+        predicates:
+          - Path=/order/**
       # 代码生成模块
       - id: tiger-generator
         uri: lb://tiger-generator
