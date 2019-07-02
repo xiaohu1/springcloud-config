@@ -68,9 +68,9 @@ spring:
 #       percentage: 0.2
 
 # feign 配置
-feign:
-  hystrix:
-    enabled: true
+#feign:
+#  hystrix:
+#    enabled: true
 #  okhttp:
 #    enabled: true
 #  httpclient:
