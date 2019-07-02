@@ -74,7 +74,7 @@ feign:
   okhttp:
     enabled: true
   httpclient:
-    enabled: false
+    enabled: true
   client:
     config:
       default:
