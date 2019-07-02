@@ -1,6 +1,9 @@
+# 暴露监控端点
 management:
-   security:
-     enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: '*'
 
 spring:
   aop:
