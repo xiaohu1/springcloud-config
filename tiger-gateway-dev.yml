@@ -10,21 +10,29 @@ spring:
           uri: lb://tiger-auth
           predicates:
           - Path=/auth/**
+          filters:
+          - StripPrefix=1
         # 后台管理模块
         - id: tiger-sys
           uri: lb://tiger-sys
           predicates:
           - Path=/sys/**
+          filters:
+          - StripPrefix=1
         # 订单模块
         - id: tiger-order
           uri: lb://tiger-order
           predicates:
           - Path=/order/**
+          filters:
+          - StripPrefix=1
         # 测试模块
         - id: tiger-demo
           uri: lb://tiger-demo
           predicates:
           - Path=/demo/**
+          filters:
+          - StripPrefix=1
         # 代码生成模块
         - id: tiger-generator
           uri: lb://tiger-generator
