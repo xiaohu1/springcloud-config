@@ -107,6 +107,12 @@ async:
   queueCapacity: 200    #队列大小(excel模板最大上传题目数量)
   namePrefix: tiger_async   #线程的名称前缀
   keepAlive: 60 #允许的空闲时间
+
+# url 白名单
+ignore:
+   urls:
+    - /actuator/**
+    - /user/info/*
 # paascloud:
 #   auth:
 #     jwt:

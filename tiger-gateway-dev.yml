@@ -26,13 +26,6 @@ spring:
         - Path=/order/**
         filters:
         - StripPrefix=1
-      # 测试模块
-      - id: tiger-demo
-        uri: lb://tiger-demo
-        predicates:
-        - Path=/demo/**
-        filters:
-        - StripPrefix=1
       # 代码生成模块
       - id: tiger-generator
         uri: lb://tiger-generator
