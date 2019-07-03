@@ -111,7 +111,6 @@ async:
 # url 白名单
 ignore:
    urls:
-    - /actuator/**
     - /api/user/info/*
 # paascloud:
 #   auth:
