@@ -31,8 +31,8 @@ spring:
           uri: lb://tiger-demo
           predicates:
           - Path=/demo/**
-          filters:
-          - StripPrefix=1
+#          filters:
+#          - StripPrefix=1
         # 代码生成模块
         - id: tiger-generator
           uri: lb://tiger-generator
