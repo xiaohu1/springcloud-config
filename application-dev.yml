@@ -28,7 +28,7 @@ feign:
     enabled: true
   okhttp:
     enabled: true
-  httpclient:false
+  httpclient: false
     enabled:
   client:
     config:
