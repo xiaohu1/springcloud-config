@@ -112,7 +112,7 @@ async:
 ignore:
    urls:
     - /actuator/**
-    - /user/info/*
+    - /api/user/info/*
 # paascloud:
 #   auth:
 #     jwt:
