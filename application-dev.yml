@@ -28,8 +28,8 @@ feign:
     enabled: true
   okhttp:
     enabled: true
-  httpclient: false
-    enabled:
+  httpclient:
+    enabled: false
   client:
     config:
       default:
