@@ -9,12 +9,12 @@ spring:
         uri: lb://tiger-auth
         predicates:
         - Path=/auth/**
-      # 模块
+      # 后台管理模块
       - id: tiger-sys
         uri: lb://tiger-sys
         predicates:
         - Path=/sys/**
-      # 模块
+      # 订单模块
       - id: tiger-order
         uri: lb://tiger-order
         predicates:
