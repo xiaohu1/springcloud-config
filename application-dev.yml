@@ -29,7 +29,7 @@ feign:
   okhttp:
     enabled: true
   httpclient:
-    enabled: true
+    enabled: false
   client:
     config:
       default:
