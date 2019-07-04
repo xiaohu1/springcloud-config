@@ -13,8 +13,3 @@ spring:
 # Mybatis配置
 mybatis:
   mapperLocations: classpath:mapper/**/*.xml
-
-# url 白名单
-ignore:
-  urls:
-  - /api/user/info/*
