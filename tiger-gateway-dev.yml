@@ -10,12 +10,12 @@ spring:
         uri: lb://tiger-auth
         predicates:
         - Path=/auth/**
+        filters:
+        - StripPrefix=1
         # 验证码拦截器
         - CodeGatewayFilter
         # 登录拦截器
         - LoginGatewayFilter
-        filters:
-        - StripPrefix=1
       # 后台管理模块
       - id: tiger-sys
         uri: lb://tiger-sys
