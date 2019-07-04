@@ -9,19 +9,6 @@ management:
 
 
 spring:
-  redis:
-    password:    # 密码（默认为空）
-    timeout: 6000ms  # 连接超时时长（毫秒）
-    cluster:
-      max-redirects: 3  # 获取失败 最大重定向次数
-      nodes:
-        39.105.174.45:7000,39.105.174.45:7001,39.105.174.45:7002,39.105.174.45:7003,39.105.174.45:7004,39.105.174.45:7005
-    lettuce:
-      pool:
-        max-active: 1000  #连接池最大连接数（使用负值表示没有限制）
-        max-idle: 10 #连接池中的最大空闲连接
-        min-idle: 5 #连接池中的最小空闲连接
-        max-wait: -1ms  #连接池最大阻塞等待时间（使用负值表示没有限制）
   aop:
     proxy-target-class: true
     auto: true
@@ -30,6 +17,11 @@ spring:
 #     port: 5672
 #     username: guest
 #     password: guest
+   redis:
+     host: 127.0.0.1
+     password:
+     port: 6379
+     timeout: 0
 #   zipkin:
 #     rabbitmq:
 #       queue: zipkin
