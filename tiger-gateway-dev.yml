@@ -10,6 +10,10 @@ spring:
         uri: lb://tiger-auth
         predicates:
         - Path=/auth/**
+        # 验证码拦截器
+        - CodeGatewayFilter
+        # 登录拦截器
+        - LoginGatewayFilter
         filters:
         - StripPrefix=1
       # 后台管理模块
@@ -19,6 +23,17 @@ spring:
         - Path=/sys/**
         filters:
         - StripPrefix=1
+        # 限流配置
+        - name: RequestRateLimiter
+          args:
+            key-resolver: '#{@remoteAddrKeyResolver}'
+            redis-rate-limiter.replenishRate: 10
+            redis-rate-limiter.burstCapacity: 20
+          # 降级配置
+        - name: Hystrix
+          args:
+            name: default
+            fallbackUri: 'forward:/fallback'
       # 订单模块
       - id: tiger-order
         uri: lb://tiger-order
@@ -26,6 +41,17 @@ spring:
         - Path=/order/**
         filters:
         - StripPrefix=1
+        # 限流配置
+        - name: RequestRateLimiter
+          args:
+            key-resolver: '#{@remoteAddrKeyResolver}'
+            redis-rate-limiter.replenishRate: 10
+            redis-rate-limiter.burstCapacity: 20
+          # 降级配置
+        - name: Hystrix
+          args:
+            name: default
+            fallbackUri: 'forward:/fallback'
       # 代码生成模块
       - id: tiger-generator
         uri: lb://tiger-generator

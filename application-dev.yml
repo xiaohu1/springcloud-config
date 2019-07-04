@@ -109,9 +109,9 @@ async:
   keepAlive: 60 #允许的空闲时间
 
 # url 白名单
-ignore:
-  urls:
-  - /api/user/info/*
+#ignore:
+#  urls:
+#  - /api/user/info/*
 
 # url 白名单
 #ignore:
