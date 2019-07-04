@@ -12,6 +12,6 @@ spring:
 #             signingKey: 123456 # 对称加密秘钥
 
 # Logging配置
- logging:
-    config:
-       classpath: logback.xml
+logging:
+  config:
+      classpath: logback.xml
