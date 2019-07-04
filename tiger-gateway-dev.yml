@@ -1,24 +1,57 @@
 spring:
   cloud:
     gateway:
-      locator:
-        enabled: true
+      discovery:
+        locator:
+          enabled: true
       routes:
       # 认证中心
       - id: tiger-auth
         uri: lb://tiger-auth
         predicates:
         - Path=/auth/**
-      # 模块
+        filters:
+        - StripPrefix=1
+        # 验证码拦截器
+        - CodeGatewayFilter
+        # 登录拦截器
+        - LoginGatewayFilter
+      # 后台管理模块
       - id: tiger-sys
         uri: lb://tiger-sys
         predicates:
         - Path=/sys/**
-      # 模块
+        filters:
+        - StripPrefix=1
+        # 限流配置
+        - name: RequestRateLimiter
+          args:
+            key-resolver: '#{@remoteAddrKeyResolver}'
+            redis-rate-limiter.replenishRate: 10
+            redis-rate-limiter.burstCapacity: 20
+          # 降级配置
+        - name: Hystrix
+          args:
+            name: default
+            fallbackUri: 'forward:/fallback'
+      # 订单模块
       - id: tiger-order
         uri: lb://tiger-order
         predicates:
         - Path=/order/**
+        filters:
+        - StripPrefix=1
+        # 限流配置
+        - name: RequestRateLimiter
+          args:
+            key-resolver: '#{@remoteAddrKeyResolver}'
+            redis-rate-limiter.replenishRate: 10
+            redis-rate-limiter.burstCapacity: 20
+          # 降级配置
+        - name: Hystrix
+          args:
+            name: default
+            fallbackUri: 'forward:/fallback'
       # 代码生成模块
       - id: tiger-generator
         uri: lb://tiger-generator
