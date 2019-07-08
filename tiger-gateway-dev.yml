@@ -17,7 +17,7 @@ spring:
         # 登录拦截器
         - LoginGatewayFilter
         # token拦截器
-        - Oauth2TokenFilter
+#        - Oauth2TokenFilter
       # 后台管理模块
       - id: tiger-sys
         uri: lb://tiger-sys
@@ -26,7 +26,7 @@ spring:
         filters:
         - StripPrefix=1
         # token拦截器
-        - Oauth2TokenFilter
+#        - Oauth2TokenFilter
         # 限流配置
         - name: RequestRateLimiter
           args:
@@ -46,7 +46,7 @@ spring:
         filters:
         - StripPrefix=1
         # token拦截器
-        - Oauth2TokenFilter
+#        - Oauth2TokenFilter
         # 限流配置
         - name: RequestRateLimiter
           args:
