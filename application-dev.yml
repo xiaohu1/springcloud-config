@@ -96,7 +96,7 @@ tiger:
     base-package: com.example
     title: Tiger-Cloud
     description: Tiger cloud Restful API docs
-    termsOfServiceUrl: http://localhost:8090
+    termsOfServiceUrl: http://localhost:8888
     version: 1.0
 #    apiName: Authorization
 #    apiKeyName: Authorization
