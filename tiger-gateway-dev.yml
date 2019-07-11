@@ -25,6 +25,7 @@ spring:
         - Path=/sys/**
         filters:
         - StripPrefix=1
+        - SwaggerHeaderFilter
         # token拦截器
 #        - OauthTokenFilter
         # 限流配置
@@ -45,6 +46,7 @@ spring:
         - Path=/order/**
         filters:
         - StripPrefix=1
+        - SwaggerHeaderFilter
         # token拦截器
 #        - OauthTokenFilter
         # 限流配置
