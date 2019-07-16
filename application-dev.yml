@@ -90,16 +90,17 @@ mybatis-plus:
     map-underscore-to-camel-case: true
     cache-enabled: false
     call-setters-on-nulls: true
-tiger:
-  swagger2:
-    enable: true
-    base-package: com.example
-    title: Tiger-Cloud
-    description: Tiger cloud Restful API docs
-    termsOfServiceUrl: http://localhost:8888
-    version: 1.0
-    apiName: Authorization
-    apiKeyName: Authorization
+
+# swagger 配置文件
+swagger2:
+  enable: true
+  base-package: com.example
+  title: Tiger-Cloud
+  description: Tiger cloud Restful API swagger2 docs
+  termsOfServiceUrl: https://github.com/xiaohu1
+  version: 2.0
+  apiName: Authorization
+  apiKeyName: Authorization
 # 异步线程池
 async:
   corePoolSize: 16     #核心线程数
