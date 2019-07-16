@@ -98,8 +98,8 @@ tiger:
     description: Tiger cloud Restful API docs
     termsOfServiceUrl: http://localhost:8888
     version: 1.0
-    apiName: admin
-    apiKeyName: admin
+    apiName: Authorization
+    apiKeyName: Authorization
 # 异步线程池
 async:
   corePoolSize: 16     #核心线程数
