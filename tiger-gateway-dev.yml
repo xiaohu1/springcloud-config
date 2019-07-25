@@ -17,7 +17,7 @@ spring:
         # 登录拦截器
         - LoginGatewayFilter
         # token拦截器
-#        - OauthTokenFilter
+        - OauthTokenFilter
       # 后台管理模块
       - id: tiger-sys
         uri: lb://tiger-sys
