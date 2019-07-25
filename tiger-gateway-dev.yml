@@ -48,7 +48,7 @@ spring:
         - StripPrefix=1
         - SwaggerHeaderFilter
         # token拦截器
-#        - OauthTokenFilter
+        - OauthTokenFilter
         # 限流配置
         - name: RequestRateLimiter
           args:
