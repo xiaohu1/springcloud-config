@@ -26,8 +26,6 @@ spring:
         filters:
         - StripPrefix=1
         - SwaggerHeaderFilter
-        # token拦截器
-        - AccessGatewayFilter
         # 限流配置
         - name: RequestRateLimiter
           args:
