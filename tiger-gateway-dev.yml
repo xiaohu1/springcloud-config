@@ -6,8 +6,8 @@ spring:
           enabled: true
       routes:
       # 认证中心
-      - id: tiger-auth
-        uri: lb://tiger-auth
+      - id: tiger-auth-server
+        uri: lb://tiger-auth-server
         predicates:
         - Path=/auth/**
         filters:
@@ -17,7 +17,7 @@ spring:
         # 登录拦截器
         - LoginGatewayFilter
         # token拦截器
-#        - OauthTokenFilter
+#        - AccessGatewayFilter
       # 后台管理模块
       - id: tiger-sys
         uri: lb://tiger-sys
@@ -26,8 +26,6 @@ spring:
         filters:
         - StripPrefix=1
         - SwaggerHeaderFilter
-        # token拦截器
-#        - OauthTokenFilter
         # 限流配置
         - name: RequestRateLimiter
           args:
@@ -48,7 +46,7 @@ spring:
         - StripPrefix=1
         - SwaggerHeaderFilter
         # token拦截器
-#        - OauthTokenFilter
+#        - AccessGatewayFilter
         # 限流配置
         - name: RequestRateLimiter
           args:
