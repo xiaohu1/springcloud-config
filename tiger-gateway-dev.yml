@@ -6,8 +6,8 @@ spring:
           enabled: true
       routes:
       # 认证中心
-      - id: tiger-auth-server
-        uri: lb://tiger-auth-server
+      - id: tiger-auth
+        uri: lb://tiger-auth
         predicates:
         - Path=/auth/**
         filters:
