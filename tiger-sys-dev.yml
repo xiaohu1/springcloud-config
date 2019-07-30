@@ -13,3 +13,13 @@ spring:
 # Mybatis配置
 mybatis:
   mapperLocations: classpath:mapper/**/*.xml
+
+# Logging配置
+logging:
+  config:
+    classpath: logback.xml
+  level:
+    com:
+      example:
+        sys:
+         mapper: debug
