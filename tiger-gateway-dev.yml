@@ -15,7 +15,7 @@ spring:
         # 验证码拦截器
         - CodeGatewayFilter
         # 登录拦截器
-#        - LoginGatewayFilter
+        - LoginGatewayFilter
         # token拦截器
 #        - AccessGatewayFilter
       # 后台管理模块
