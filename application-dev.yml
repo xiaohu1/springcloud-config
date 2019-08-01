@@ -112,7 +112,7 @@ async:
 # url 白名单
 ignore:
   urls:
-   /api/**, /v2/api-docs
+   /api/**,/v2/api-docs,/oauth/check_token
 
 # paascloud:
 #   auth:
