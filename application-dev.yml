@@ -112,7 +112,7 @@ async:
 # url 白名单
 ignore:
   urls:
-   /api/**,/v2/api-docs,/oauth/check_token
+  /api/**,/webjars/**,/resources/**,/swagger-ui.html,/swagger-resources/**,/v2/api-docs,index.html,/oauth/**,/swagger
 
 # paascloud:
 #   auth:
