@@ -17,11 +17,11 @@ spring:
 #     port: 15672
 #     username: guest
 #     password: guest
-   redis:
-     host: 127.0.0.1
-     password:
-     port: 6379
-     timeout: 5000
+  redis:
+    host: 127.0.0.1
+    password:
+    port: 6379
+    timeout: 5000
 #  redis:
 #    password:    # 密码（默认为空）
 #    timeout: 6000ms  # 连接超时时长（毫秒）
