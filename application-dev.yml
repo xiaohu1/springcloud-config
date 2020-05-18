@@ -17,18 +17,18 @@ spring:
 #     port: 15672
 #     username: guest
 #     password: guest
-#   redis:
-#     host: 127.0.0.1
-#     password:
-#     port: 6379
-#     timeout: 5000
-  redis:
-    password:    # 密码（默认为空）
-    timeout: 6000ms  # 连接超时时长（毫秒）
-    cluster:
-      max-redirects: 3  # 获取失败 最大重定向次数
-      nodes:
-        47.105.155.211:7001,47.105.155.211:7002,47.105.155.211:7003,47.105.155.211:7004,47.105.155.211:7005,47.105.155.211:7006
+   redis:
+     host: 127.0.0.1
+     password:
+     port: 6379
+     timeout: 5000
+#  redis:
+#    password:    # 密码（默认为空）
+#    timeout: 6000ms  # 连接超时时长（毫秒）
+#    cluster:
+#      max-redirects: 3  # 获取失败 最大重定向次数
+#      nodes:
+#        47.105.155.211:7001,47.105.155.211:7002,47.105.155.211:7003,47.105.155.211:7004,47.105.155.211:7005,47.105.155.211:7006
     lettuce:
       pool:
         max-active: 1000  #连接池最大连接数（使用负值表示没有限制）
