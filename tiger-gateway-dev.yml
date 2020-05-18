@@ -13,7 +13,7 @@ spring:
         filters:
         - StripPrefix=1
         # 验证码拦截器
-        - CodeGatewayFilter
+#         - CodeGatewayFilter
         # 登录拦截器
 #        - LoginGatewayFilter
         # token拦截器
